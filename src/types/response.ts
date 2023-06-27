@@ -31,13 +31,27 @@ export type skills<T = 'get'> = Structure<
   }
 >;
 
-export type carrerList<T = 'get'> = Structure<
+export type companies<T = 'get'> = Structure<
   T,
   {
     /**
      * 会社名
      */
-    companyName: string;
+    company: string;
+    /**
+     * キャリアリスト
+     */
+    carrierList?: Reference<T, unknown>[];
+  }
+>;
+
+export type carrierList<T = 'get'> = Structure<
+  T,
+  {
+    /**
+     * 会社名
+     */
+    companyName: Reference<T, unknown>;
     /**
      * プロジェクト名
      */
@@ -61,7 +75,7 @@ export type carrerList<T = 'get'> = Structure<
     /**
      * 担当業務
      */
-    responsible: string;
+    responsible: any;
     /**
      * スキル
      */
@@ -76,22 +90,27 @@ export type carrerList<T = 'get'> = Structure<
 export interface EndPoints {
   get: {
     skills: skills<'get'>;
-    'carrer-list': carrerList<'get'>;
+    companies: companies<'get'>;
+    'carrier-list': carrierList<'get'>;
   };
   gets: {
     skills: skills<'gets'>;
-    'carrer-list': carrerList<'gets'>;
+    companies: companies<'gets'>;
+    'carrier-list': carrierList<'gets'>;
   };
   post: {
     skills: skills<'post'>;
-    'carrer-list': carrerList<'post'>;
+    companies: companies<'post'>;
+    'carrier-list': carrierList<'post'>;
   };
   put: {
     skills: skills<'put'>;
-    'carrer-list': carrerList<'put'>;
+    companies: companies<'put'>;
+    'carrier-list': carrierList<'put'>;
   };
   patch: {
     skills: skills<'patch'>;
-    'carrer-list': carrerList<'patch'>;
+    companies: companies<'patch'>;
+    'carrier-list': carrierList<'patch'>;
   };
 }
