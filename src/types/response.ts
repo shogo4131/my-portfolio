@@ -41,7 +41,7 @@ export type Companies<T = 'get'> = Structure<
     /**
      * キャリアリスト
      */
-    carrierList?: CarrierList[];
+    carrierList: CarrierList[];
   }
 >;
 

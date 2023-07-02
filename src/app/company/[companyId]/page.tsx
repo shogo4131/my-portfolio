@@ -1,16 +1,8 @@
-import { client } from '@/libs/client';
-import { Companies } from '@/types/response';
+import { getCompany } from '@/apis/company';
 import Link from 'next/link';
 
 const CompanyDetail = async (context: any) => {
-  const {
-    company,
-    carrierList,
-    id: companyId,
-  } = await client.get<Companies>({
-    endpoint: 'companies',
-    contentId: context.params.companyId,
-  });
+  const { id: companyId, company, carrierList } = await getCompany(context.params.companyId);
 
   return (
     <div>
