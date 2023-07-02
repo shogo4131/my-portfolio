@@ -17,7 +17,7 @@ type Structure<T, P> = T extends 'get'
   ? GetsType<{ id: string } & DateType & Required<P>>
   : Partial<DateType> & (T extends 'patch' ? Partial<P> : P);
 
-export type skills<T = 'get'> = Structure<
+export type Skills<T = 'get'> = Structure<
   T,
   {
     /**
@@ -31,7 +31,7 @@ export type skills<T = 'get'> = Structure<
   }
 >;
 
-export type companies<T = 'get'> = Structure<
+export type Companies<T = 'get'> = Structure<
   T,
   {
     /**
@@ -41,11 +41,11 @@ export type companies<T = 'get'> = Structure<
     /**
      * キャリアリスト
      */
-    carrierList?: Reference<T, unknown>[];
+    carrierList?: CarrierList[];
   }
 >;
 
-export type carrierList<T = 'get'> = Structure<
+export type CarrierList<T = 'get'> = Structure<
   T,
   {
     /**
@@ -89,28 +89,28 @@ export type carrierList<T = 'get'> = Structure<
 
 export interface EndPoints {
   get: {
-    skills: skills<'get'>;
-    companies: companies<'get'>;
-    'carrier-list': carrierList<'get'>;
+    skills: Skills<'get'>;
+    companies: Companies<'get'>;
+    'carrier-list': CarrierList<'get'>;
   };
   gets: {
-    skills: skills<'gets'>;
-    companies: companies<'gets'>;
-    'carrier-list': carrierList<'gets'>;
+    skills: Skills<'gets'>;
+    companies: Companies<'gets'>;
+    'carrier-list': CarrierList<'gets'>;
   };
   post: {
-    skills: skills<'post'>;
-    companies: companies<'post'>;
-    'carrier-list': carrierList<'post'>;
+    skills: Skills<'post'>;
+    companies: Companies<'post'>;
+    'carrier-list': CarrierList<'post'>;
   };
   put: {
-    skills: skills<'put'>;
-    companies: companies<'put'>;
-    'carrier-list': carrierList<'put'>;
+    skills: Skills<'put'>;
+    companies: Companies<'put'>;
+    'carrier-list': CarrierList<'put'>;
   };
   patch: {
-    skills: skills<'patch'>;
-    companies: companies<'patch'>;
-    'carrier-list': carrierList<'patch'>;
+    skills: Skills<'patch'>;
+    companies: Companies<'patch'>;
+    'carrier-list': CarrierList<'patch'>;
   };
 }
