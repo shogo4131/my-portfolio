@@ -1,0 +1,15 @@
+.tag {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 4px;
+  background-color: #324860;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #566d86;
+}
