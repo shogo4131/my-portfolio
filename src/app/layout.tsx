@@ -1,4 +1,4 @@
-import { Header } from './_components/Header';
+import { Header } from '../components/Header';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -19,7 +19,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="ja">
       <body className={inter.className}>
         <Header />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );
