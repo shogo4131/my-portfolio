@@ -1,8 +1,11 @@
 import { getCompanies } from '@/apis/company';
+import { getSkills } from '@/apis/skill';
+import { Tag } from '@/components/Tag';
 import Link from 'next/link';
 
 const Home = async () => {
   const companies = await getCompanies();
+  const skills = await getSkills();
 
   return (
     <div>
@@ -23,6 +26,12 @@ const Home = async () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        <h3>Skill</h3>
+        {skills.map(({ id, skill }) => (
+          <Tag key={id}>{skill}</Tag>
+        ))}
       </div>
     </div>
   );
