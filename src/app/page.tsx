@@ -2,6 +2,9 @@ import { getCompanies } from '@/apis/company';
 import { getSkills } from '@/apis/skill';
 import { Tag } from '@/components/Tag';
 import Link from 'next/link';
+import { formatDate } from '@/utils/date';
+
+import styles from './page.module.css';
 
 const Home = async () => {
   const companies = await getCompanies();
@@ -15,14 +18,18 @@ const Home = async () => {
         <p>Webエンジニア4年目</p>
         <p>出身: 兵庫県</p>
         <p>東京のスタートアップでフロントエンドエンジニアとして活動しています。</p>
-        <p>サウナ🧖と温泉♨️が趣味です</p>
+        <p>
+          サウナ🧖と温泉<span className={styles.onsen}>♨️</span>が趣味です
+        </p>
       </div>
       <div>
         <h3>Resume</h3>
         <ul>
-          {companies.map(({ id, company }) => (
+          {companies.map(({ id, company, carrierList }) => (
             <li key={id}>
-              <Link href={`/company/${id}`}>{company}</Link>
+              <Link href={`/company/${id}`}>{`${formatDate(carrierList[0].start)} 〜 ${formatDate(
+                carrierList[0].end
+              )} ${company} `}</Link>
             </li>
           ))}
         </ul>
